@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhishma Constructions — Premium Builders & Developers in Guntur</title>
+<meta name="description" content="Bhishma Constructions builds RERA-approved apartments, custom villas and commercial spaces across Guntur, Andhra Pradesh. 16 years. 240+ projects. Handed over on time, every time.">
+
+<link rel="stylesheet" href="https://unpkg.com/splitting/dist/splitting.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root{
+  --dark:#0A0A0A;
+  --dark-2:#121212;
+  --dark-3:#171717;
+  --gold:#C9A84C;
+  --gold-light:#E8CE85;
+  --cream:#F5F0E8;
+  --cream-2:#FBF8F3;
+  --muted:#6E6A63;
+  --display:'Playfair Display', Georgia, serif;
+  --body:'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:auto;}
+body{
+  font-family:var(--body);
+  background:var(--dark);
+  color:#fff;
+  font-size:17px;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{text-decoration:none;color:inherit;}
+ul{list-style:none;}
+section{position:relative;}
+.wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 28px;}
+
+.label{
+  font-family:var(--body);
+  font-size:12px;
+  font-weight:600;
+  color:var(--gold);
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  margin-bottom:18px;
+  display:block;
+}
+
+/* ============ MOTION REVEAL INITIAL STATE ============ */
+/* .js-motion is added synchronously in <head> and removed by a safety timeout
+   if the Motion module never loads, so content can never stay invisible. */
+.js-motion [data-motion]{opacity:0;}
+[data-motion]{will-change:transform,opacity;}
+@media (prefers-reduced-motion:reduce){
+  .js-motion [data-motion]{opacity:1!important;}
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;}
+}
+
+/* ============ SCROLL PROGRESS ============ */
+#scroll-progress{
+  position:fixed;top:0;left:0;width:0%;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-light));
+  z-index:9999;
+}
+
+/* ============ NAV ============ */
+#nav{
+  position:fixed;top:0;left:0;width:100%;height:80px;z-index:1000;
+  display:flex;align-items:center;
+  background:transparent;border-bottom:1px solid transparent;
+  transition:height .3s ease, background .3s ease, box-shadow .3s ease, backdrop-filter .3s ease;
+}
+#nav.scrolled{
+  height:64px;
+  background:rgba(10,10,10,.92);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  box-shadow:0 2px 24px rgba(0,0,0,.18);
+}
+.nav-inner{width:100%;max-width:1240px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;}
+.brand{font-family:var(--display);font-size:22px;font-weight:700;color:#fff;letter-spacing:.01em;}
+.brand span{color:var(--gold);}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-links a.nlink{
+  position:relative;font-size:14px;font-weight:500;color:rgba(255,255,255,.85);
+  padding:4px 0;transition:color .25s ease;
+}
+.nav-links a.nlink:hover{color:#fff;}
+.nav-links a.nlink::after{
+  content:'';position:absolute;left:0;bottom:0;height:1.5px;width:100%;
+  background:var(--gold);transform:scaleX(0);transform-origin:right;
+  transition:transform .35s cubic-bezier(.6,.05,.2,1);
+}
+.nav-links a.nlink:hover::after{transform:scaleX(1);transform-origin:left;}
+.nav-phone{
+  font-size:14px;font-weight:600;color:var(--gold);
+  animation:navPulse 6s ease-in-out infinite;display:inline-block;
+}
+@keyframes navPulse{
+  0%,100%{opacity:1;transform:scale(1);}
+  8%{opacity:.7;transform:scale(1.02);}
+  16%{opacity:1;transform:scale(1);}
+}
+.btn{
+  position:relative;overflow:hidden;display:inline-block;
+  font-family:var(--body);font-weight:600;cursor:pointer;border:none;
+  z-index:1;transition:color .3s ease;
+}
+.btn::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s cubic-bezier(.6,.05,.2,1);
+}
+.btn:hover::before{transform:scaleX(1);}
+.btn-gold{background:var(--gold);color:#0A0A0A;padding:12px 24px;border-radius:6px;font-size:14px;}
+.btn-gold::before{background:var(--gold-light);}
+.btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.55);padding:13px 27px;border-radius:6px;font-size:16px;}
+.btn-ghost::before{background:#fff;}
+.btn-ghost:hover{color:#0A0A0A;border-color:#fff;}
+.btn-lg{padding:16px 36px;font-size:18px;border-radius:6px;}
+.btn-hero{padding:14px 28px;font-size:16px;border-radius:6px;}
+
+.burger{display:none;width:30px;height:22px;position:relative;cursor:pointer;z-index:1100;}
+.burger span{position:absolute;left:0;width:100%;height:2px;background:#fff;transition:.3s ease;}
+.burger span:nth-child(1){top:0;}
+.burger span:nth-child(2){top:10px;}
+.burger span:nth-child(3){top:20px;}
+.burger.open span:nth-child(1){top:10px;transform:rotate(45deg);}
+.burger.open span:nth-child(2){opacity:0;}
+.burger.open span:nth-child(3){top:10px;transform:rotate(-45deg);}
+#mobile-menu{
+  position:fixed;inset:0;background:rgba(10,10,10,.98);z-index:1050;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;
+  opacity:0;visibility:hidden;transform:translateY(-16px);
+  transition:opacity .35s ease, transform .35s ease, visibility .35s;
+}
+#mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0);}
+#mobile-menu a{font-family:var(--display);font-size:32px;color:#fff;font-weight:600;}
+#mobile-menu a:hover{color:var(--gold);}
+
+/* ============ HERO ============ */
+#hero{
+  min-height:100vh;overflow:hidden;display:flex;align-items:center;
+  background:linear-gradient(135deg,#0A0A0A,#C9A84C);
+  padding:120px 0 60px;
+}
+#hero::before{
+  content:'';position:absolute;inset:-10%;
+  background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&q=80');
+  background-size:cover;background-position:center;
+  animation:kenBurns 25s ease-in-out infinite alternate;
+  z-index:0;will-change:transform;
+}
+@keyframes kenBurns{
+  0%{transform:scale(1) translate(0%,0%);}
+  33%{transform:scale(1.06) translate(-2%,-1%);}
+  66%{transform:scale(1.04) translate(1.5%,-2%);}
+  100%{transform:scale(1.08) translate(-1%,1%);}
+}
+#hero::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,.54);z-index:1;}
+#particles{position:absolute;inset:0;z-index:1;pointer-events:none;}
+.hero-inner{
+  position:relative;z-index:2;width:100%;max-width:1240px;margin:0 auto;padding:0 28px;
+  display:grid;grid-template-columns:55% 45%;align-items:center;gap:0;
+}
+.hero-left{padding-right:56px;}
+.hero-headline{
+  font-family:var(--display);font-size:72px;line-height:1.1;font-weight:800;color:#fff;
+  margin-bottom:24px;letter-spacing:-.01em;
+}
+.hero-headline em{color:var(--gold);font-style:italic;}
+.hero-sub{
+  font-size:20px;font-weight:400;color:rgba(255,255,255,.85);line-height:1.6;
+  max-width:560px;margin-bottom:34px;
+}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px;}
+.hero-trust{font-size:13px;color:rgba(255,255,255,.65);letter-spacing:.02em;}
+.hero-trust .stars{color:var(--gold);letter-spacing:2px;}
+.hero-right{position:relative;animation:heroFloat 8s ease-in-out infinite;}
+@keyframes heroFloat{
+  0%,100%{transform:translateY(0) translateX(0);}
+  33%{transform:translateY(-10px) translateX(3px);}
+  66%{transform:translateY(-6px) translateX(-3px);}
+}
+.hero-img{
+  position:relative;height:520px;width:100%;
+  background-image:linear-gradient(135deg,#0A0A0A,#C9A84C),url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80');
+  background-size:cover;background-position:center;background-blend-mode:normal;
+  clip-path:polygon(8% 0%,100% 0%,100% 100%,0% 100%);
+}
+.hero-img::after{
+  content:'';position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80');
+  background-size:cover;background-position:center;
+}
+.hero-badge{
+  position:absolute;bottom:26px;left:32px;z-index:3;
+  background:rgba(0,0,0,.75);border:1px solid var(--gold);border-radius:100px;
+  padding:8px 16px;font-size:13px;font-weight:700;color:#fff;
+  animation:badgePulse 3s ease-in-out infinite;
+}
+@keyframes badgePulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.4);}
+  50%{box-shadow:0 0 0 8px rgba(201,168,76,0);}
+}
+
+/* ============ MARQUEE ============ */
+#marquee{background:var(--gold);padding:14px 0;overflow:hidden;}
+.marquee-track{display:flex;width:max-content;animation:marquee 28s linear infinite;}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.marquee-set{display:flex;align-items:center;flex-shrink:0;}
+.marquee-set span{
+  font-size:12px;font-weight:600;color:#0A0A0A;text-transform:uppercase;
+  letter-spacing:.1em;padding:0 26px;white-space:nowrap;
+}
+.marquee-set span i{margin-right:8px;}
+
+/* ============ TRUST BAR ============ */
+#trust{background:var(--cream);padding:80px 0;color:var(--dark);}
+.trust-grid{display:grid;grid-template-columns:repeat(5,1fr);}
+.trust-item{text-align:center;padding:0 18px;position:relative;}
+.trust-item + .trust-item::before{
+  content:'';position:absolute;left:0;top:8%;height:84%;width:1px;background:rgba(0,0,0,.1);
+}
+.trust-item i{font-size:28px;color:var(--gold);margin-bottom:14px;display:block;}
+.trust-num{font-family:var(--display);font-size:56px;font-weight:800;color:var(--dark);line-height:1;}
+.trust-num sup{font-size:28px;font-weight:700;top:-.6em;}
+.trust-label{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:10px;font-weight:500;}
+
+/* ============ SERVICES ============ */
+#services{background:linear-gradient(135deg,#0A0A0A,#161310);padding:100px 0;}
+.sec-head{max-width:640px;margin-bottom:56px;}
+.sec-h{font-family:var(--display);font-size:52px;line-height:1.12;font-weight:800;color:#fff;margin-bottom:18px;}
+.sec-sub{font-size:18px;color:rgba(255,255,255,.6);max-width:560px;line-height:1.7;}
+.svc-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:22px;}
+.service-card{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;padding:34px 30px;color:#fff;position:relative;overflow:hidden;
+  transition:transform .35s ease, box-shadow .35s ease;
+  transform-style:preserve-3d;
+}
+.service-card::after{
+  content:'';position:absolute;left:0;bottom:0;height:3px;width:0;
+  background:var(--gold);transition:width .35s ease;
+}
+.service-card:hover{transform:translateY(-8px);box-shadow:0 22px 48px rgba(0,0,0,.5);}
+.service-card:hover::after{width:100%;}
+.service-card.featured{
+  grid-row:span 2;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);
+  display:flex;flex-direction:column;justify-content:center;
+}
+.service-card i{font-size:32px;color:var(--gold);margin-bottom:20px;display:block;}
+.service-card h3{font-family:var(--display);font-size:22px;font-weight:700;margin-bottom:12px;}
+.service-card.featured h3{font-size:28px;}
+.service-card p{font-size:15px;line-height:1.6;color:rgba(255,255,255,.62);margin-bottom:18px;}
+.service-card.featured p{font-size:16px;}
+.svc-link{font-size:14px;font-weight:600;color:var(--gold);}
+.svc-link i{display:inline;font-size:12px;margin:0 0 0 6px;}
+
+/* ============ WHY US ============ */
+#why{background:var(--cream-2);padding:100px 0;color:var(--dark);}
+.why-grid{display:grid;grid-template-columns:48% 48%;gap:4%;align-items:center;}
+.why-img{
+  height:560px;border-radius:16px;overflow:hidden;
+  background-image:linear-gradient(135deg,#0A0A0A,#C9A84C);
+}
+.why-img img{width:100%;height:100%;object-fit:cover;}
+.why h2{font-family:var(--display);font-size:46px;line-height:1.15;font-weight:800;color:var(--dark);margin-bottom:20px;}
+.why-stat{font-size:20px;font-weight:700;color:var(--dark);margin-bottom:28px;padding-left:16px;border-left:3px solid var(--gold);}
+.why-list li{display:flex;gap:14px;align-items:flex-start;font-size:17px;line-height:1.5;color:#2A2A2A;margin-bottom:18px;}
+.why-list li i{color:var(--gold);font-size:18px;margin-top:4px;flex-shrink:0;}
+#why .btn-gold{margin-top:14px;padding:15px 30px;font-size:16px;}
+
+/* ============ TESTIMONIALS ============ */
+#testimonials{background:var(--dark);padding:100px 0;}
+.tst-head{text-align:center;margin-bottom:54px;}
+.tst-head h2{font-family:var(--display);font-size:52px;font-weight:800;color:#fff;margin-bottom:14px;}
+.tst-head p{font-size:18px;color:rgba(255,255,255,.65);}
+.testimonials-swiper{overflow:hidden;padding-bottom:10px;}
+.t-card{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;padding:32px;height:auto;
+}
+.t-stars{font-size:22px;color:var(--gold);letter-spacing:2px;margin-bottom:16px;}
+.t-quote{font-size:16px;color:rgba(255,255,255,.85);line-height:1.75;font-style:italic;}
+.t-sep{height:1px;background:rgba(255,255,255,.12);margin:20px 0;}
+.t-name{font-size:15px;font-weight:700;color:#fff;}
+.t-badge{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;display:flex;align-items:center;gap:6px;}
+.t-badge i{color:#4285F4;font-size:13px;}
+.swiper-slide{height:auto;}
+
+/* ============ CTA ============ */
+#cta{
+  background:
+    radial-gradient(circle, rgba(0,0,0,.045) 1px, transparent 1px),
+    linear-gradient(135deg,#FFFFFF,#F3EDE0);
+  background-size:20px 20px, auto;
+  padding:80px 0;text-align:center;color:var(--dark);
+}
+#cta h2{font-family:var(--display);font-size:52px;line-height:1.14;font-weight:800;max-width:700px;margin:0 auto 18px;}
+#cta .cta-sub{font-size:20px;color:var(--muted);max-width:640px;margin:0 auto 26px;}
+.cta-phone{display:inline-block;font-family:var(--display);font-size:44px;font-weight:800;color:var(--gold);margin-bottom:26px;}
+.cta-note{font-size:13px;color:var(--muted);margin-top:20px;}
+
+/* ============ CONTACT ============ */
+#contact{background:var(--cream);padding:80px 0;color:var(--dark);}
+#contact > .wrap > h2{font-family:var(--display);font-size:48px;font-weight:800;margin-bottom:44px;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;}
+.c-info h3{font-family:var(--display);font-size:28px;font-weight:700;margin-bottom:10px;}
+.c-info .area{font-size:17px;color:var(--muted);margin-bottom:28px;}
+.c-row{display:flex;align-items:center;gap:14px;margin-bottom:18px;font-size:17px;}
+.c-row i{color:var(--gold);font-size:18px;width:22px;}
+.c-row a.big{font-size:24px;font-weight:700;color:var(--gold);font-family:var(--display);}
+.c-hours{margin-top:26px;font-size:15px;color:#3A3A3A;line-height:1.9;}
+.c-hours strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px;}
+.c-areas{margin-top:24px;font-size:14px;color:var(--muted);}
+.c-areas strong{color:var(--dark);}
+.c-form{background:#fff;border-radius:14px;padding:34px;box-shadow:0 12px 40px rgba(0,0,0,.06);}
+.c-form label{display:block;font-size:13px;font-weight:600;letter-spacing:.04em;color:#3A3A3A;margin-bottom:7px;}
+.c-form input,.c-form select,.c-form textarea{
+  width:100%;border:1px solid #DDD6C9;border-radius:8px;padding:14px;
+  font-family:var(--body);font-size:15px;color:var(--dark);background:#fff;
+  margin-bottom:18px;transition:border-color .25s ease, box-shadow .25s ease;
+}
+.c-form input:focus,.c-form select:focus,.c-form textarea:focus{
+  outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.15);
+}
+.c-form textarea{min-height:110px;resize:vertical;}
+.c-form button{width:100%;padding:16px;font-size:16px;border-radius:8px;}
+
+/* ============ FOOTER ============ */
+footer{background:var(--dark);border-top:3px solid var(--gold);padding:64px 0 0;}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:32px;}
+.f-brand{font-family:var(--display);font-size:24px;font-weight:700;color:#fff;margin-bottom:12px;}
+.f-tag{font-size:14px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:22px;max-width:300px;}
+.f-social{display:flex;gap:18px;}
+.f-social a{font-size:20px;color:rgba(255,255,255,.7);transition:color .25s ease;}
+.f-social a:hover{color:var(--gold);}
+.f-h{font-size:13px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:600;margin-bottom:18px;}
+footer li{margin-bottom:11px;}
+footer li a{font-size:14px;color:rgba(255,255,255,.75);transition:color .2s ease;}
+footer li a:hover{color:#fff;}
+footer li i{color:var(--gold);width:18px;margin-right:8px;font-size:13px;}
+.f-divider{height:1px;background:rgba(255,255,255,.08);}
+.f-bottom{text-align:center;padding:22px 0;font-size:13px;color:rgba(255,255,255,.4);}
+
+/* ============ FLOAT CALL ============ */
+#callbtn{
+  position:fixed;right:20px;bottom:20px;z-index:9999;
+  width:58px;height:58px;border-radius:50%;background:var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(201,168,76,.5);
+  animation:pulse 2.5s ease infinite;
+}
+#callbtn i{color:#fff;font-size:22px;}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(201,168,76,.5);}
+  50%{box-shadow:0 0 0 12px rgba(201,168,76,0);}
+}
+#callbtn::before{
+  content:'Call Now';position:absolute;bottom:74px;left:50%;transform:translateX(-50%);
+  background:#0A0A0A;color:#fff;font-size:13px;font-weight:600;padding:7px 13px;
+  border-radius:6px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+#callbtn::after{
+  content:'';position:absolute;bottom:66px;left:50%;transform:translateX(-50%);
+  border:6px solid transparent;border-top-color:#0A0A0A;opacity:0;transition:opacity .25s ease;
+}
+#callbtn:hover::before,#callbtn:hover::after{opacity:1;}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:1024px){
+  .hero-headline{font-size:56px;}
+  .svc-grid{grid-template-columns:1fr 1fr;}
+  .service-card.featured{grid-row:span 1;}
+  .trust-grid{grid-template-columns:repeat(3,1fr);row-gap:40px;}
+  .trust-item:nth-child(4)::before{display:none;}
+}
+@media (max-width:768px){
+  .nav-links{display:none;}
+  .burger{display:block;}
+  .hero-inner{grid-template-columns:1fr;text-align:center;}
+  .hero-left{padding-right:0;}
+  .hero-right{display:none;}
+  .hero-headline{font-size:42px;}
+  .hero-sub{font-size:17px;margin:0 auto 30px;}
+  .hero-btns{justify-content:center;}
+  .sec-h,.tst-head h2,#cta h2{font-size:34px;}
+  #contact > .wrap > h2{font-size:34px;}
+  .why h2{font-size:30px;}
+  .trust-grid{grid-template-columns:1fr 1fr;row-gap:36px;}
+  .trust-item::before{display:none!important;}
+  .trust-item:last-child{grid-column:1/-1;}
+  .trust-num{font-size:44px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .why-grid,.contact-grid{grid-template-columns:1fr;gap:36px;}
+  .why-img{height:340px;}
+  .f-grid{grid-template-columns:1fr 1fr;gap:32px;}
+  .cta-phone{font-size:32px;}
+}
+@media (max-width:520px){
+  .f-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<script>
+  /* Arm Motion's initial hidden state before first paint, with a safety net:
+     if the Motion module fails to load, un-hide everything after 2.5s. */
+  document.documentElement.classList.add('js-motion');
+  setTimeout(function () {
+    if (!window.__motionReady) document.documentElement.classList.remove('js-motion');
+  }, 2500);
+</script>
+</head>
+<body>
+
+<div id="scroll-progress"></div>
+
+<!-- ================= NAV ================= -->
+<header id="nav">
+  <div class="nav-inner">
+    <a href="#hero" class="brand">Bhishma <span>Constructions</span></a>
+    <nav class="nav-links">
+      <a href="#services" class="nlink">Services</a>
+      <a href="#why" class="nlink">Why Us</a>
+      <a href="#testimonials" class="nlink">Reviews</a>
+      <a href="#contact" class="nlink">Contact</a>
+      <a href="tel:+919849512345" class="nav-phone">+91 98495 12345</a>
+      <a href="#contact" class="btn btn-gold">Get Free Quote</a>
+    </nav>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<div id="mobile-menu">
+  <a href="#services">Services</a>
+  <a href="#why">Why Us</a>
+  <a href="#testimonials">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a href="tel:+919849512345" style="color:#C9A84C;">+91 98495 12345</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section id="hero">
+  <div id="particles"></div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <span class="label">Trusted Builders &amp; Developers in Guntur</span>
+      <h1 class="hero-headline" data-splitting>Homes Built to <em>Outlast</em> Generations</h1>
+      <p class="hero-sub">RERA-approved apartments, custom villas and commercial spaces across Guntur — engineered with M-sand concrete, ISI-grade steel and a handover date we put in writing.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-gold btn-hero">Get Your Free Quote</a>
+        <a href="tel:+919849512345" class="btn btn-ghost btn-hero">Call +91 98495 12345</a>
+      </div>
+      <p class="hero-trust"><span class="stars">★★★★★</span>&nbsp; 4.9 Rating · 240+ Projects Completed · RERA Registered &amp; Insured</p>
+    </div>
+    <div class="hero-right">
+      <div class="hero-img">
+        <span class="hero-badge">Serving Guntur Since 2009</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<section id="marquee">
+  <div class="marquee-track">
+    <div class="marquee-set">
+      <span><i class="fa-solid fa-star"></i>4.9 Google Rating</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>RERA Registered &amp; Insured</span><span>·</span>
+      <span><i class="fa-solid fa-trophy"></i>CREDAI Guntur Member</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>16+ Years in Business</span><span>·</span>
+      <span><i class="fa-solid fa-star"></i>5-Star Rated Builder</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>#1 Rated Construction Company in Guntur</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>1,800+ Satisfied Families</span><span>·</span>
+    </div>
+    <div class="marquee-set" aria-hidden="true">
+      <span><i class="fa-solid fa-star"></i>4.9 Google Rating</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>RERA Registered &amp; Insured</span><span>·</span>
+      <span><i class="fa-solid fa-trophy"></i>CREDAI Guntur Member</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>16+ Years in Business</span><span>·</span>
+      <span><i class="fa-solid fa-star"></i>5-Star Rated Builder</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>#1 Rated Construction Company in Guntur</span><span>·</span>
+      <span><i class="fa-solid fa-check"></i>1,800+ Satisfied Families</span><span>·</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST BAR ================= -->
+<section id="trust">
+  <div class="wrap">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <i class="fa-solid fa-calendar-check"></i>
+        <div class="trust-num"><span class="counter" data-target="16">0</span></div>
+        <div class="trust-label">Years in Guntur</div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-building"></i>
+        <div class="trust-num"><span class="counter" data-target="240">0</span>+</div>
+        <div class="trust-label">Projects Delivered</div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-house-chimney-user"></i>
+        <div class="trust-num"><span class="counter" data-target="1800">0</span>+</div>
+        <div class="trust-label">Families Handed Keys</div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-clock"></i>
+        <div class="trust-num"><span class="counter" data-target="98">0</span>%</div>
+        <div class="trust-label">On-Time Handover</div>
+      </div>
+      <div class="trust-item">
+        <i class="fa-solid fa-star"></i>
+        <div class="trust-num">4.9 <sup>★</sup></div>
+        <div class="trust-label">Google Rating</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head" data-motion="fade-up">
+      <span class="label">What We Do</span>
+      <h2 class="sec-h">From Vacant Plot to Registered Keys</h2>
+      <p class="sec-sub">One team handles design, approvals, structure, finishing and registration — so you deal with a single point of accountability from soil test to housewarming.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="service-card featured" data-tilt data-motion="fade-up">
+        <i class="fa-solid fa-house-chimney"></i>
+        <h3>Turnkey Home Construction</h3>
+        <p>Your plot, our end-to-end build. Structural design, GMC approvals, RCC framework, plumbing, electrical and finishing delivered against a locked per-square-foot rate with no mid-project revisions.</p>
+        <a href="#contact" class="svc-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-tilt data-motion="fade-up" data-motion-delay="80">
+        <i class="fa-solid fa-city"></i>
+        <h3>Residential Apartments</h3>
+        <p>RERA-registered 2BHK and 3BHK gated projects in Gorantla, Nallapadu and Amaravati Road with clear title and bank-ready documentation.</p>
+        <a href="#contact" class="svc-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-tilt data-motion="fade-up" data-motion-delay="160">
+        <i class="fa-solid fa-vector-square"></i>
+        <h3>Independent Villas</h3>
+        <p>Vastu-compliant duplex and triplex villas with in-house architects, from 1,800 sq.ft. plots up to 6,000 sq.ft. estate homes.</p>
+        <a href="#contact" class="svc-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-tilt data-motion="fade-up" data-motion-delay="240">
+        <i class="fa-solid fa-store"></i>
+        <h3>Commercial &amp; Retail</h3>
+        <p>Showrooms, clinics and office floors built to fire-safety and parking norms, handed over fit-out ready with certified load calculations.</p>
+        <a href="#contact" class="svc-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-tilt data-motion="fade-up" data-motion-delay="320">
+        <i class="fa-solid fa-couch"></i>
+        <h3>Interiors &amp; Renovation</h3>
+        <p>Modular kitchens, wardrobes, false ceilings and full structural renovations of older Guntur homes, finished in 45 working days.</p>
+        <a href="#contact" class="svc-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="service-card" data-tilt data-motion="fade-up" data-motion-delay="400">
+        <i class="fa-solid fa-map-location-dot"></i>
+        <h3>Land Development &amp; Plots</h3>
+        <p>DTCP-approved layouts with internal roads, drainage and underground cabling — plus joint-venture development for landowners.</p>
+        <a href="#contact" class="svc-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<section id="why" class="why">
+  <div class="wrap">
+    <div class="why-grid">
+      <div class="why-img" data-motion="fade-right">
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=900&q=80" alt="Completed Bhishma Constructions residence in Guntur" loading="lazy">
+      </div>
+      <div>
+        <span class="label" data-motion="fade-left">Why Choose Us</span>
+        <h2 data-motion="fade-left">16 Years in Guntur. Not One Abandoned Site.</h2>
+        <p class="why-stat" data-motion="fade-left" data-motion-delay="100">240 projects delivered. 98% handed over on or before the promised date.</p>
+        <ul class="why-list">
+          <li data-motion="fade-left" data-motion-delay="150"><i class="fa-solid fa-circle-check"></i><span>Fixed per-square-foot pricing signed before we break ground — no "steel rates went up" surprises at slab stage.</span></li>
+          <li data-motion="fade-left" data-motion-delay="250"><i class="fa-solid fa-circle-check"></i><span>Only ISI-marked TMT steel, 53-grade cement and washed M-sand, with batch invoices shared in your WhatsApp group.</span></li>
+          <li data-motion="fade-left" data-motion-delay="350"><i class="fa-solid fa-circle-check"></i><span>Weekly site photos and a stage-wise payment schedule tied to work completed, not to the calendar.</span></li>
+          <li data-motion="fade-left" data-motion-delay="450"><i class="fa-solid fa-circle-check"></i><span>In-house architects, structural engineers and a dedicated site supervisor — no sub-contracted guesswork.</span></li>
+          <li data-motion="fade-left" data-motion-delay="550"><i class="fa-solid fa-circle-check"></i><span>We handle GMC and DTCP approvals, RERA filings and bank loan documentation on your behalf.</span></li>
+          <li data-motion="fade-left" data-motion-delay="650"><i class="fa-solid fa-circle-check"></i><span>10-year structural warranty and one free year of post-handover snag rectification.</span></li>
+        </ul>
+        <a href="#contact" class="btn btn-gold" data-motion="fade-left" data-motion-delay="720">Get Started Today</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="tst-head">
+      <h2 data-motion="fade-up">Trusted Across Guntur</h2>
+      <p data-motion="fade-up" data-motion-delay="100">What Our Customers Are Saying</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="swiper testimonials-swiper">
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"We gave Bhishma our 300 sq.yd plot in Gorantla for turnkey construction and got the keys eleven days early. The rate we agreed in the first meeting is exactly what we paid at the end — not one rupee of extra billing. Sudhakar garu sent photos every Saturday without us asking."</p>
+            <div class="t-sep"></div>
+            <div class="t-name">Ravi Teja Kolluri</div>
+            <div class="t-badge"><i class="fa-brands fa-google"></i> G via Google Reviews</div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"Booked a 3BHK in their Amaravati Road apartment project while it was still at second slab. Every document — RERA number, approved plan, title deed — was handed over before I paid the booking amount. My SBI loan cleared in nine days because the paperwork was that clean."</p>
+            <div class="t-sep"></div>
+            <div class="t-name">Padmaja Nannapaneni</div>
+            <div class="t-badge"><i class="fa-brands fa-google"></i> G via Google Reviews</div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"Our 42-year-old house near Brodipet needed full structural renovation and we were terrified of hidden costs. Their engineer did a load survey first, showed us which beams actually needed retrofitting, and talked us out of two things we didn't need. Finished in 40 days."</p>
+            <div class="t-sep"></div>
+            <div class="t-name">Srinivas Rao Gadde</div>
+            <div class="t-badge"><i class="fa-brands fa-google"></i> G via Google Reviews</div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"I run a dental clinic and needed a 1,600 sq.ft. commercial floor on Lakshmipuram Main Road with proper fire clearance and patient parking. Bhishma handled the GMC approvals end to end and handed it over fit-out ready. We started seeing patients three weeks after handover."</p>
+            <div class="t-sep"></div>
+            <div class="t-name">Dr. Anitha Chowdary</div>
+            <div class="t-badge"><i class="fa-brands fa-google"></i> G via Google Reviews</div>
+          </div>
+        </div>
+
+        <div class="swiper-slide">
+          <div class="t-card">
+            <div class="t-stars">★★★★★</div>
+            <p class="t-quote">"As an NRI in Dubai I could not visit the site even once during our villa construction in Nallapadu. The weekly WhatsApp updates, material bills and video walkthroughs made it feel like I was there. Vastu requirements my mother insisted on were followed to the inch."</p>
+            <div class="t-sep"></div>
+            <div class="t-name">Harsha Vardhan Yalamanchili</div>
+            <div class="t-badge"><i class="fa-brands fa-google"></i> G via Google Reviews</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section id="cta">
+  <div class="wrap">
+    <span class="label" data-motion="fade-up">Ready to Get Started?</span>
+    <h2 data-motion="fade-up" data-motion-delay="80">Get a Free Site Visit &amp; Written Estimate This Week</h2>
+    <p class="cta-sub" data-motion="fade-up" data-motion-delay="160">No pressure. No obligation. Our engineer visits your plot, measures it, and hands you a stage-wise cost sheet you can compare with anyone.</p>
+    <a href="tel:+919849512345" class="cta-phone" data-motion="fade-up" data-motion-delay="200">+91 98495 12345</a>
+    <div data-motion="fade-up" data-motion-delay="250"><a href="#contact" class="btn btn-gold btn-lg">Book Your Free Quote Today</a></div>
+    <p class="cta-note" data-motion="fade-up" data-motion-delay="300">Typically responds within 2 hours · RERA Registered &amp; Insured · Serving Guntur Since 2009</p>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="wrap">
+    <h2 data-motion="fade-up">Get In Touch</h2>
+    <div class="contact-grid">
+      <div class="c-info" data-motion="fade-up">
+        <h3>Ready to talk?</h3>
+        <p class="area">Proudly serving Guntur and surrounding areas across Andhra Pradesh.</p>
+        <div class="c-row"><i class="fa-solid fa-phone"></i><a href="tel:+919849512345" class="big">+91 98495 12345</a></div>
+        <div class="c-row"><i class="fa-solid fa-envelope"></i><a href="mailto:info@bhishmaconstructions.in">info@bhishmaconstructions.in</a></div>
+        <div class="c-row"><i class="fa-solid fa-location-dot"></i><span>4-12-88, Lakshmipuram Main Road, Guntur, AP 522007</span></div>
+        <div class="c-hours">
+          <strong>Office Hours</strong>
+          Monday – Saturday: 9:00 AM – 7:00 PM<br>
+          Sunday: 10:00 AM – 2:00 PM (site visits by appointment)
+        </div>
+        <p class="c-areas"><strong>Also serving:</strong> Gorantla · Nallapadu · Amaravati Road · Mangalagiri · Tenali</p>
+      </div>
+
+      <div data-motion="fade-up" data-motion-delay="100">
+        <form class="c-form" id="quote-form">
+          <label for="fname">Full Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Your name" required>
+
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+91 " required>
+
+          <label for="service">Service Needed</label>
+          <select id="service" name="service" required>
+            <option value="">Select a service</option>
+            <option>Turnkey Home Construction</option>
+            <option>Residential Apartments</option>
+            <option>Independent Villas</option>
+            <option>Commercial &amp; Retail Construction</option>
+            <option>Interiors &amp; Renovation</option>
+            <option>Land Development &amp; Plots</option>
+          </select>
+
+          <label for="msg">Anything else we should know? (optional)</label>
+          <textarea id="msg" name="msg" placeholder="Plot size, location, budget range, timeline..."></textarea>
+
+          <button type="submit" class="btn btn-gold">Send My Request →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand">Bhishma Constructions</div>
+        <p class="f-tag">Guntur's builder of record since 2009 — fixed pricing, honest materials, keys on the promised date.</p>
+        <div class="f-social">
+          <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Google"><i class="fa-brands fa-google"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="f-h">Services</div>
+        <ul>
+          <li><a href="#services">Turnkey Home Construction</a></li>
+          <li><a href="#services">Residential Apartments</a></li>
+          <li><a href="#services">Independent Villas</a></li>
+          <li><a href="#services">Commercial &amp; Retail</a></li>
+          <li><a href="#services">Interiors &amp; Renovation</a></li>
+          <li><a href="#services">Land Development &amp; Plots</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-h">Contact Us</div>
+        <ul>
+          <li><a href="tel:+919849512345"><i class="fa-solid fa-phone"></i>+91 98495 12345</a></li>
+          <li><a href="mailto:info@bhishmaconstructions.in"><i class="fa-solid fa-envelope"></i>info@bhishmaconstructions.in</a></li>
+          <li><a href="#contact"><i class="fa-solid fa-map-marker-alt"></i>Lakshmipuram, Guntur, AP</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-h">Company</div>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#why">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-divider"></div>
+    <div class="f-bottom">© 2025 Bhishma Constructions. All rights reserved. · RERA Registered &amp; Insured · RERA Reg. No. P02400004821</div>
+  </div>
+</footer>
+
+<a href="tel:+919849512345" id="callbtn" aria-label="Call Bhishma Constructions"><i class="fa-solid fa-phone"></i></a>
+
+<!-- ================= SCRIPTS ================= -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://unpkg.com/splitting/dist/splitting.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+
+  /* ---------- Lenis smooth scroll (init FIRST) ---------- */
+  var lenis = null;
+  if (window.Lenis) {
+    lenis = new Lenis({ lerp: 0.08 });
+    function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+    requestAnimationFrame(raf);
+  }
+
+  /* ---------- Scroll reveals are handled by Motion (module script below) ---------- */
+
+  /* ---------- Anchor links via Lenis ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      if (lenis) lenis.scrollTo(t, { offset: -64 });
+      else t.scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('burger').classList.remove('open');
+    });
+  });
+
+  /* ---------- Nav scroll state (progress bar is driven by Motion below) ---------- */
+  var nav = document.getElementById('nav');
+  function onScroll() {
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle('scrolled', y > 80);
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  /* ---------- Mobile menu ---------- */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', function () {
+    burger.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+
+  /* ---------- Hero: Splitting FIRST, then GSAP ---------- */
+  if (window.Splitting) Splitting();
+  if (window.gsap) {
+    var words = document.querySelectorAll('.hero-headline .word');
+    if (words.length) {
+      gsap.from(words, { y: 40, opacity: 0, duration: 0.8, stagger: 0.08, ease: 'power3.out' });
+    }
+    gsap.from('.hero-left .label', { y: 16, opacity: 0, duration: 0.6, ease: 'power2.out' });
+    gsap.from('.hero-sub', { y: 24, opacity: 0, duration: 0.7, delay: 0.9, ease: 'power3.out' });
+    gsap.from('.hero-btns', { y: 20, opacity: 0, duration: 0.6, delay: 1.05, ease: 'power3.out' });
+    gsap.from('.hero-img', { x: 60, opacity: 0, duration: 0.9, delay: 0.4, ease: 'power3.out' });
+    gsap.from('.hero-badge', { y: 18, opacity: 0, duration: 0.6, delay: 0.5, ease: 'power2.out' });
+  }
+
+  /* ---------- tsParticles ---------- */
+  if (window.tsParticles) {
+    tsParticles.load('particles', {
+      particles: {
+        number: { value: 28 },
+        color: { value: '#ffffff' },
+        opacity: { value: 0.18, random: true, animation: { enable: true, speed: 0.6, minimumValue: 0.05, sync: false } },
+        size: { value: 2, random: true },
+        move: { enable: true, speed: 0.5, direction: 'top', random: true, straight: false, outModes: 'out' },
+        shape: { type: 'circle' }
+      },
+      detectRetina: true
+    });
+  }
+
+  /* ---------- Trust bar counters: IO + GSAP expo.out ---------- */
+  var trust = document.getElementById('trust');
+  var counted = false;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting || counted) return;
+      counted = true;
+      document.querySelectorAll('#trust .counter').forEach(function (el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var obj = { val: 0 };
+        gsap.to(obj, {
+          val: target,
+          duration: 2,
+          ease: 'expo.out',
+          snap: { val: 1 },
+          onUpdate: function () { el.textContent = Math.round(obj.val).toLocaleString('en-IN'); }
+        });
+      });
+      io.disconnect();
+    });
+  }, { threshold: 0.35 });
+  if (trust) io.observe(trust);
+
+  /* ---------- Vanilla Tilt ---------- */
+  if (window.VanillaTilt) {
+    VanillaTilt.init(document.querySelectorAll('.service-card'), {
+      max: 6, speed: 400, glare: true, 'max-glare': 0.15, perspective: 800
+    });
+  }
+
+  /* ---------- Testimonials Swiper ---------- */
+  if (window.Swiper) {
+    new Swiper('.testimonials-swiper', {
+      loop: true,
+      spaceBetween: 24,
+      grabCursor: true,
+      centeredSlides: true,
+      autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
+      breakpoints: {
+        0:    { slidesPerView: 1.15, centeredSlides: true },
+        768:  { slidesPerView: 2.2,  centeredSlides: false },
+        1024: { slidesPerView: 3,    centeredSlides: false }
+      }
+    });
+  }
+
+  /* ---------- Form ---------- */
+  var form = document.getElementById('quote-form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    form.innerHTML = '<div class="success-msg" style="text-align:center;padding:40px 0;">' +
+      '<p style="font-size:24px;font-weight:700;color:#C9A84C;">Got it. We\'ll be in touch within 2 hours.</p>' +
+      '<p style="font-size:16px;color:#666;margin-top:8px;">Check your phone — we usually call first.</p></div>';
+  });
+
+});
+</script>
+
+<!-- ============ MOTION (Framer Motion's vanilla JS build) ============ -->
+<script type="module">
+import { animate, inView, scroll } from "https://cdn.jsdelivr.net/npm/motion@13.2.0/+esm";
+
+window.__motionReady = true;
+
+const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealSpring = { type: 'spring', stiffness: 140, damping: 20, mass: 0.9 };
+
+/* ---------- Directional reveals with real spring physics ---------- */
+const OFFSETS = {
+  'fade-up':    { y: [28, 0] },
+  'fade-left':  { x: [40, 0] },
+  'fade-right': { x: [-40, 0] }
+};
+
+if (reduced) {
+  document.documentElement.classList.remove('js-motion');
+} else {
+  document.querySelectorAll('[data-motion]').forEach(function (el) {
+    const kind = el.getAttribute('data-motion');
+    const delay = (parseInt(el.getAttribute('data-motion-delay'), 10) || 0) / 1000;
+    const move = OFFSETS[kind] || OFFSETS['fade-up'];
+
+    inView(el, function () {
+      animate(el, Object.assign({ opacity: [0, 1] }, move), Object.assign({ delay: delay }, revealSpring));
+    }, { amount: 0.2, margin: '0px 0px -80px 0px' });
+  });
+
+  /* ---------- Scroll-linked hero depth (parallax + fade out) ---------- */
+  const hero = document.getElementById('hero');
+  if (hero) {
+    scroll(
+      animate('.hero-inner', { y: [0, 90], opacity: [1, 0.15] }, { ease: 'linear' }),
+      { target: hero, offset: ['start start', 'end start'] }
+    );
+  }
+
+  /* ---------- Scroll-linked progress bar (Motion drives it precisely) ---------- */
+  scroll(animate('#scroll-progress', { scaleX: [0, 1] }, { ease: 'linear' }));
+  const bar = document.getElementById('scroll-progress');
+  if (bar) { bar.style.width = '100%'; bar.style.transformOrigin = '0% 50%'; }
+
+  /* ---------- Spring hover on gold CTAs (transform-only, no layout cost) ---------- */
+  document.querySelectorAll('.btn-gold, .btn-ghost').forEach(function (btn) {
+    btn.addEventListener('pointerenter', function () {
+      animate(btn, { scale: 1.04 }, { type: 'spring', stiffness: 400, damping: 18 });
+    });
+    btn.addEventListener('pointerleave', function () {
+      animate(btn, { scale: 1 }, { type: 'spring', stiffness: 400, damping: 22 });
+    });
+  });
+
+  /* ---------- Floating call button: spring press feedback ---------- */
+  const call = document.getElementById('callbtn');
+  if (call) {
+    call.addEventListener('pointerdown', function () {
+      animate(call, { scale: 0.88 }, { type: 'spring', stiffness: 600, damping: 20 });
+    });
+    call.addEventListener('pointerup', function () {
+      animate(call, { scale: 1 }, { type: 'spring', stiffness: 500, damping: 14 });
+    });
+  }
+}
+</script>
+</body>
+</html>
